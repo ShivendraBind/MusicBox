@@ -1,0 +1,21 @@
+{% extends 'music/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1> Yo call me </h1>
+        {% if confirm_message %}
+        <p> {{ confirm_message }} </p>
+        {% endif %}
+        {% if form %}
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <input type="submit" value="submit form" class="btn btn default">
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
